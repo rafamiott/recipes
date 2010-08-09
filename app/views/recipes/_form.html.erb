@@ -1,0 +1,26 @@
+<p>
+  <%= f.label 'Nome da Receita' %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label 'Descrição da Receita' %><br />
+  <%= f.text_area :description, :rows => 5 %>
+</p>
+<p>
+  Rende <%= f.text_field :portion, :size => 3 %> porções
+</p>
+<p>
+<fieldset>
+  <legend>Ingredientes</legend>
+  <% f.fields_for :quantities do |fi| %>
+    <%= render :partial => 'quantity_fields', :locals => { :f => fi } %>
+  <% end %>
+  <p><%= link_to_add_fields 'Adicionar Ingredientes', f, :quantities %></p>
+</fieldset>
+
+</p>
+<p>
+  <%= f.label 'Modo de Preparo' %><br />
+  <%= f.text_area :method, :rows => 5 %>
+</p>
+<%= f.submit 'Salvar' %> | <%= link_to 'Visualizar', @recipe %> | <%= link_to 'Cancelar', recipes_path %>

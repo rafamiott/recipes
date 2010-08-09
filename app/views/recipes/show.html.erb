@@ -1,0 +1,30 @@
+<fieldset>
+  <legend><b><%=h @recipe.name %></b></legend>
+  <p>
+    <b>Descrição:</b>
+    <%=h @recipe.description %>
+  </p>
+
+  <p>
+    <b>Rendimento:</b>
+    <%=h @recipe.portion %>
+  </p>
+
+  <p>
+    <fieldset>
+      <legend><b>Ingredientes</b></legend>
+      <% @recipe.quantities.map{ |q| [q.quantidade, q.medida, q.ingrediente] }.each do |q, m, i| -%>
+          <%=h q %> <%=h m %> de <%=h i %><br/>
+      <% end -%>
+    </fieldset>
+  </p>
+
+  <p>
+    <b>Modo de Preparo:</b>
+    <%=h @recipe.method %>
+  </p>
+</fieldset>
+
+
+<%= link_to 'Editar', edit_recipe_path(@recipe) %> |
+<%= link_to 'Voltar', recipes_path %>

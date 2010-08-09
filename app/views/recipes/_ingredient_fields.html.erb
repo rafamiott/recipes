@@ -1,0 +1,20 @@
+<p class="fields">
+  <% f.fields_for :quantities do |fi| %>
+    <%= fi.label 'Qunatidade' %>
+    <%= fi.text_field :name %>
+  <% end %>
+
+  <%= select :quantity, :measure_id, Measure.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'Selecione uma Medida' } %>
+  <%= select :quantity, :ingredient_id, Ingredient.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'Selecione um Ingrediente' } %>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to_remove_fields "Remover Este Ingrediente", f %>
+  <br />
+
+  <%#= f.text_field :quantities %>
+  <%#= select :recipe, :ingredient_id, Ingredient.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'Selecione um Ingrediente' } %>
+  
+  <%#= f.hidden_field :_destroy %>
+  <%#= link_to_remove_fields "Remover Este Ingrediente", f %>
+  <!--br /-->
+</p>

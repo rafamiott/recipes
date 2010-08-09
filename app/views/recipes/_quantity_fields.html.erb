@@ -1,0 +1,11 @@
+<p class="fields">
+  <%= f.label 'Qtd' %>
+  <%= f.text_field :name, :placeholder => 'Quantidade', :size => 5 %>
+
+  <%= f.select :measure_id, Measure.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'Selecione uma Medida' } %> de
+  <%= f.select :ingredient_id, Ingredient.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'Selecione um Ingrediente' } %>
+  
+  <%= f.hidden_field :_destroy %>
+  <%= link_to_remove_fields "Remover Este Ingrediente", f %>
+  <br />
+</p>
